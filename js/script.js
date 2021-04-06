@@ -44,4 +44,33 @@ $(function () {
         prevArrow: '<i class="fa fa-angle-left left"></i>',
         nextArrow: '<i class="fa fa-angle-right right"></i>',
     });
+
+    // back to top js
+    var btn = $('#button');
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 1500);
+    });
+
+    // sticky menu js
+    $(window).scroll(function () {
+        let scrolling = $(this).scrollTop();
+        if (scrolling > 0) {
+            $('.nav').addClass('fixed');
+        }
+        else {
+            $('.nav').removeClass('fixed');
+        }
+    });
+
+
 });
